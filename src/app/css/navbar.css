@@ -1,0 +1,17 @@
+nav{
+    background-color: lightblue;
+    margin: 0;
+    padding: 5px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul{
+    display: flex;
+}
+nav ul li{
+    margin: 0px 5px;
+    cursor: pointer;
+}
