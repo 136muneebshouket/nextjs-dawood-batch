@@ -1,8 +1,17 @@
 'use client'
-import React , {memo} from 'react'
+import React , {memo , useContext} from 'react'
+import Context from '@/config/context'
 
 
 const Child = ({state , setState , datafromchild}) => {
+
+       const { message, setMessage } = useContext(Context)
+
+
+       function changecontext() {
+        setMessage(message + 1)
+       }
+
     // console.log(props);
     // console.log('child render');
     return (
@@ -14,6 +23,7 @@ const Child = ({state , setState , datafromchild}) => {
                 {/* <button onClick={()=>{setState('shanoor')}}>click</button> */}
 
                 <button onClick={ ()=>{ datafromchild('value from child')}}>call func</button>
+                <button onClick={changecontext}>change context</button>
              
             </div>
         </>
