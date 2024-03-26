@@ -30,7 +30,7 @@ async function testapi() {
     //     console.log(err)
     // });
 
-    await axios.post('/api/test_api' , {name:'next',rollno:200})
+    await axios.post('/api/test_api' , {name:'muneeb',lastname:'shouket'})
     .then((result) => {
         console.log(result.data)
     }).catch((err) => {
