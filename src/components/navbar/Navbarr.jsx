@@ -8,13 +8,14 @@ const Navbarr = () => {
 
   const { message, setMessage } = useContext(Context)
 
-  console.log(message)
+  // console.log(message)
   return (
     <nav>
      <ul>
       <li><Link href={'/'}>Home</Link></li>
       {/* <li><Link href={'/test-api'}>API</Link></li> */}
-      <li><Link href={'/backend'}>backend</Link></li>
+      {/* <li><Link href={'/backend'}>backend</Link></li> */}
+      <li><Link href={'/form'}>ADD user</Link></li>
 
       {/* <li> <Link href={'/about'}>About</Link>  </li> */}
       {/* <li>  <Link href={'/useeffect'}>Use Effect</Link></li> */}

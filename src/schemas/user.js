@@ -6,14 +6,16 @@ const userschema = new mongoose.Schema({
 
     name:{
         type:String,
-        required:true,
-        unique:true
+        required:[true , 'name is required'],
     },
-    lastname:{
+    email:{
         type:String,
+        required:[true , 'email is required'],
+        unique:true,
     },
-
-
+    gender:{
+        type:String,
+    }
 
 },{ timestamps: true })
 

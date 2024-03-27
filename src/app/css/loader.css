@@ -1,0 +1,16 @@
+.loder{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 99vh;
+    backdrop-filter: blur(1px);
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.loder span{
+    font-size: xxx-large;
+    display: inline-block;
+    color: rgb(25, 117, 255);
+}
