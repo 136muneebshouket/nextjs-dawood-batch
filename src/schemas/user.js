@@ -13,9 +13,11 @@ const userschema = new mongoose.Schema({
         required:[true , 'email is required'],
         unique:true,
     },
-    gender:{
-        type:String,
-    }
+    age:{
+        type:Number,
+        required:[true , 'age is required'],
+    },
+
 
 },{ timestamps: true })
 

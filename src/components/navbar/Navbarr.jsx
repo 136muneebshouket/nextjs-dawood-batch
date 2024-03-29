@@ -15,7 +15,8 @@ const Navbarr = () => {
       <li><Link href={'/'}>Home</Link></li>
       {/* <li><Link href={'/test-api'}>API</Link></li> */}
       {/* <li><Link href={'/backend'}>backend</Link></li> */}
-      <li><Link href={'/form'}>ADD user</Link></li>
+      <li><Link href={'/form'}>ADD_user</Link></li>
+      <li><Link href={'/users'}>users</Link></li>
 
       {/* <li> <Link href={'/about'}>About</Link>  </li> */}
       {/* <li>  <Link href={'/useeffect'}>Use Effect</Link></li> */}

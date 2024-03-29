@@ -10,7 +10,7 @@ const page = () => {
   let initialobj = {
     name: "",
     email: "",
-    gender: "",
+    age: "",
   };
 
   const [data, setData] = useState(initialobj);
@@ -45,6 +45,10 @@ const page = () => {
             <label htmlFor="">email</label>
             <input type="email" name="email" value={data.email} onChange={(e)=>{setData({...data,email:e.target.value})}} id="" />
           </div>
+          <div>
+            <label htmlFor="">age</label>
+            <input type="number" name="age" value={data.age} onChange={(e)=>{setData({...data,age:e.target.value})}} id="" />
+          </div>
           {/* <div>
             <label htmlFor="">gender</label>
             <select name="gender" onChange={(e)=>{setData({...data,gender:e.target.value})}} id="">
@@ -53,13 +57,13 @@ const page = () => {
               <option value="female">Female</option>
             </select>
           </div> */}
-          <div>
+          {/* <div>
             <label htmlFor="">gender</label>
             <br />
              <input type="radio" onChange={(e)=>{setData({...data,gender:e.target.value})}}  name="g" value={'male'} /> <span>male</span>
              <br />
              <input type="radio" onChange={(e)=>{setData({...data,gender:e.target.value})}} name="g" value={'female'} /> <span>female</span>
-          </div>
+          </div> */}
 
           <div>
             <button type="submit">submit</button>
