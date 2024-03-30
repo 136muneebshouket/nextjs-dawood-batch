@@ -3,6 +3,7 @@ import Navbarr from "@/components/navbar/Navbarr";
 import "./globals.css";
 import '@/app/css/navbar.css'
 import '@/app/css/loader.css'
+import '@/app/css/edit_modal.css'
 import Provider from "@/config/provider";
 
 const inter = Inter({ subsets: ["latin"] });

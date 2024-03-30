@@ -22,7 +22,7 @@ export async function GET(request) {
 
     // console.log(fetchdata)
 
-    return Response.json(fetchdata);
+    return Response.json({success:true , payload:fetchdata });
   } catch (error) {
     return Response.json(error.mesaage);
   }
@@ -41,6 +41,24 @@ export async function POST(request) {
     }
 
     return Response.json("ur request has been received");
+  } catch (error) {
+    return Response.json(error.message);
+  }
+}
+export async function PUT(request) {
+  try {
+    dbConnect();
+
+    let  {formdata , id} = await request.json();
+
+    //  console.log(formdata)
+    let storeindb = await user.findByIdAndUpdate({_id:id} ,formdata , {new:true});
+
+    if (!storeindb) {
+      throw new Error("something wrong in db");
+    }
+
+    return Response.json("ur request has been updated");
   } catch (error) {
     return Response.json(error.message);
   }
