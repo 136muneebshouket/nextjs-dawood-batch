@@ -1,10 +1,11 @@
 import user from "@/schemas/user";
 import dbConnect from "@/config/dbconnect";
+import { NextResponse } from 'next/server'
 
 export async function GET(request) {
   try {
     // const searchParams = request.nextUrl.searchParams;
-
+  //  console.log('hitting')
     // console.log(searchParams.get("name"));
     // console.log(searchParams.get("page"));
 
@@ -22,9 +23,9 @@ export async function GET(request) {
 
     // console.log(fetchdata)
 
-    return Response.json({success:true , payload:fetchdata });
+    return NextResponse.json(fetchdata);
   } catch (error) {
-    return Response.json(error.mesaage);
+    return NextResponse.json(error.mesaage);
   }
 }
 
@@ -40,9 +41,9 @@ export async function POST(request) {
       throw new Error("something wrong in db");
     }
 
-    return Response.json("ur request has been received");
+    return NextResponse.json("ur request has been received");
   } catch (error) {
-    return Response.json(error.message);
+    return NextResponse.json(error.message);
   }
 }
 export async function PUT(request) {
@@ -58,9 +59,9 @@ export async function PUT(request) {
       throw new Error("something wrong in db");
     }
 
-    return Response.json("ur request has been updated");
+    return NextResponse.json("ur request has been updated");
   } catch (error) {
-    return Response.json(error.message);
+    return NextResponse.json(error.message);
   }
 }
 
@@ -78,11 +79,11 @@ export async function DELETE(request) {
     }
     // console.log(fetchdata)
 
-    return Response.json({
+    return NextResponse.json({
       message:'deleted',
       success:true
     });
   } catch (error) {
-    return Response.json(error.mesaage);
+    return NextResponse.json(error.mesaage);
   }
 }

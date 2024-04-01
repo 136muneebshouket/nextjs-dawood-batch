@@ -39,7 +39,7 @@ const page = async () => {
       .get(`/api/test_api`)
       .then((result) => {
         setMessage({ loading: false });
-        setData(result.data.payload);
+        setData(result.data);
         // console.log(result.data);
       })
       .catch((err) => {
