@@ -11,10 +11,10 @@ export const authOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
-      credentials: {
-        email: { label: "Email", type: "text" },
-        password: { label: "Password", type: "password" },
-      },
+      // credentials: {
+      //   email: { label: "Email", type: "text" },
+      //   password: { label: "Password", type: "password" },
+      // },
 
       async authorize(credentials) {
         const { email, password } = credentials;
@@ -57,10 +57,10 @@ export const authOptions = {
   session: {
     strategy: "jwt",
   },
-  // pages: {
-  //   signIn: "/login",
-  //   // signIn: '/auth/signin',
-  // },
+  pages: {
+    signIn: "/login",
+    // signIn: '/auth/signin',
+  },
 
   secret: process.env.NEXTAUTH_SECRET,
  
