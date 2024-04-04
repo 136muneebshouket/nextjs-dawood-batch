@@ -1,5 +1,6 @@
 import user from "@/schemas/user";
 import dbConnect from "@/config/dbconnect";
+import bcrypt from "bcrypt";
 import { NextResponse } from "next/server";
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
@@ -15,7 +16,7 @@ export async function POST(req) {
       throw new Error("please provide valid email");
     }
 
-    let finduser = await user.findOne({ useremail });
+    let finduser = await user.findOne({ email: useremail });
 
     if (!finduser) {
       throw new Error("user not found provide valid email");
@@ -38,19 +39,66 @@ export async function POST(req) {
     const resetLink = `${process.env.SITE_URL}/forgetpassword/?token=${resetToken}`;
 
     const mailOptions = {
-        // from: process.env.EMAIL_FROM,
-        from: process.env.EMAIL_USER,
-        to: useremail,
-        subject: "Password Reset",
-        html: `Please click <a href="${resetLink}">here</a> to reset your password.`,
-      };
-      const sended = await transporter.sendMail(mailOptions);
+      // from: process.env.EMAIL_FROM,
+      from: process.env.EMAIL_USER,
+      to: useremail,
+      subject: "Password Reset",
+      html: `Please click <a href="${resetLink}">here</a> to reset your password.`,
+    };
+    const sended = await transporter.sendMail(mailOptions);
 
-      if(!sended){
-        throw new Error("something went wrong");
-      }
+    if (!sended) {
+      throw new Error("something went wrong");
+    }
 
     return NextResponse.json({ success: true, msg: "email send" });
+  } catch (error) {
+    return NextResponse.json({ success: false, msg: error.message });
+  }
+}
+
+export async function PUT(req) {
+  try {
+    let body = await req.json();
+    // console.log(process.env.SITE_URL);
+    let newpassword = body.password;
+    let reset_token = body.token;
+
+    if (!newpassword) {
+      throw new Error("please provide valid new password");
+    }
+
+    if (!reset_token) {
+      throw new Error("reset token required please proceed again");
+    }
+
+    const hashedPassword = await bcrypt.hash(newpassword, 10);
+
+    const userfound = await user.findOne({
+      reset_token,
+      reset_token_expiration: { $gt: Date.now() },
+    });
+    // console.log(userfound)
+
+    if (!userfound) {
+      throw new Error("reset token expired please proceed again");
+    }
+    if (!hashedPassword) {
+      throw new Error("Something went wrong");
+    }
+
+    let passchanged = await user.updateOne(
+      { reset_token },
+      { $set: { password: hashedPassword , 
+        reset_token: '' ,  reset_token_expiration : '' } }
+    );
+    console.log(passchanged)
+    if (!passchanged) {
+      throw new Error("Something went wrong");
+    }
+
+
+    return NextResponse.json({ success: true, msg: "pasword updated" });
   } catch (error) {
     return NextResponse.json({ success: false, msg: error.message });
   }
