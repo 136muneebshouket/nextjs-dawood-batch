@@ -4,7 +4,7 @@ import { useSession, signOut } from "next-auth/react";
 
 const Auth_links = () => {
   const { data: session, status } = useSession();
-  console.log(status)
+  // console.log(status)
   async function logout() {
     await signOut();
   }

@@ -4,6 +4,7 @@ import "./globals.css";
 import "@/app/css/navbar.css";
 import "@/app/css/loader.css";
 import "@/app/css/edit_modal.css";
+import "@/app/css/post-a-book.css";
 import Provider from "@/config/provider";
 
 const inter = Inter({ subsets: ["latin"] });

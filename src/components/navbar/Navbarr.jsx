@@ -15,6 +15,7 @@ const Navbarr = () => {
     <nav>
      <ul>
       <li><Link href={'/'}>Home</Link></li>
+      <li><Link href={'/upload-book'}>Upload</Link></li>
      </ul>
      <Auth_links/>
 
