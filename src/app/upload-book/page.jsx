@@ -23,7 +23,7 @@ let obj ={
   function changehandler(e) {
     setBookinfo({ ...bookinfo, [e.target.name]: e.target.value });
   }
-  console.log(img)
+  // console.log(sessionData?.user?.id)
 
   async function imagehandler(e) {
     const files = e.target.files;
@@ -76,7 +76,7 @@ let obj ={
     e.preventDefault();
     setMessage({ loading: true });
     if (sessionData != null) {
-      var userid = sessionData.user.id;
+      var userid = sessionData?.user?.id;
     }
     if (!userid) {
       setMessage({ success: false, msg: "please login" });
@@ -91,9 +91,11 @@ let obj ={
       .post("/api/bookroutes/uploadroute", obj)
       .then((result) => {
         console.log(result);
+        setBookinfo(obj)
+        setImg([])
         setMessage({ loading: false });
         setMessage({ success: true, msg: "Book saved successfully" });
-        console.log(message);
+        // console.log(message);
       })
       .catch((err) => {
         console.log(err);

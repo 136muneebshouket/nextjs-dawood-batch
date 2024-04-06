@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ['res.cloudinary.com'], // Add other domains if needed
+    domains: ['ik.imagekit.io'], // Add other domains if needed
+  },
   env: {
+   
+
+
     DB_URI:
       "",
 
@@ -12,6 +19,8 @@ const nextConfig = {
     EMAIL_USER: "muneeb.office136@gmail.com",
     EMAIl_PASS: "",
     EMAIl_FROM: "jakayla.toy@ethereal.email",
+
+
   },
 };
 
