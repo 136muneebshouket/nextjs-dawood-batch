@@ -20,7 +20,9 @@ const nextConfig = {
     EMAIl_PASS: "",
     EMAIl_FROM: "jakayla.toy@ethereal.email",
 
+  
 
+ 
   },
 };
 

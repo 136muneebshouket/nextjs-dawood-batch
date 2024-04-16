@@ -25,7 +25,7 @@ const All_books_home = async () => {
   return (
     <>
       <div className="container">
-        {books.map((card, index) => {
+        {books?.map((card, index) => {
           return (
             <>
               <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
