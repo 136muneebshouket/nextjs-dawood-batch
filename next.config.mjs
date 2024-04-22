@@ -7,7 +7,6 @@ const nextConfig = {
   env: {
    
 
-
     DB_URI:
       "",
 
@@ -20,9 +19,11 @@ const nextConfig = {
     EMAIl_PASS: "",
     EMAIl_FROM: "jakayla.toy@ethereal.email",
 
+
+
   
 
- 
+  
   },
 };
 
