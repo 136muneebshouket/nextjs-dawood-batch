@@ -5,7 +5,24 @@ import bookschema from "@/schemas/bookschema";
 
 export async function GET(request) {
     try {
+
         dbConnect();
+        const searchParams = request.nextUrl.searchParams;
+
+        searchParams.forEach((value, key) => {
+            console.log(`${key}:${value}`);
+
+                if (typeof query_obj[key] === 'string' && query_obj[key].includes('=')) {
+                    query_obj[key] = queryString.parse(query_obj[key]);
+                    let innerobj = query_obj[key]
+                    for (const key in innerobj) {
+                      innerobj['$'+key] = Number(innerobj[key]);
+                      delete innerobj[key]
+                    }
+                }
+            
+        });
+
         let selected={
             title:1,
             price:1,

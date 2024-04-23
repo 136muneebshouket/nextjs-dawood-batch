@@ -20,7 +20,7 @@ async function getdata() {
 const All_books_home = async () => {
   const books = await getdata();
 
-  // console.log(books);
+  console.log(books);
 
   return (
     <>

@@ -5,7 +5,6 @@ const nextConfig = {
     domains: ['ik.imagekit.io'], // Add other domains if needed
   },
   env: {
-   
 
     DB_URI:
       "",
@@ -17,11 +16,7 @@ const nextConfig = {
     EMAIL_PORT: 587,
     EMAIL_USER: "muneeb.office136@gmail.com",
     EMAIl_PASS: "",
-    EMAIl_FROM: "jakayla.toy@ethereal.email",
-
-
-
-  
+    
 
   
   },

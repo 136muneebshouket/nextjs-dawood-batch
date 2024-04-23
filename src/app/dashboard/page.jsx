@@ -1,10 +1,20 @@
-import React from 'react'
+import Carts from "@/components/usercarts/Carts"
 
 const page = () => {
+
+
+  
+  // const { data, error, isLoading } = useSWR('/api/usercarts', fetcher)
+
+  // if(data){
+  //   console.log(data)
+  // }
+
+
   return (
-    <div>
-      Dashboard
-    </div>
+   <>
+   <Carts/>
+   </>
   )
 }
 
